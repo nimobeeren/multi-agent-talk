@@ -1,0 +1,23 @@
+{
+  "name": "multi-agent-talk",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node main.ts"
+  },
+  "author": "Nimo Beeren",
+  "license": "MIT",
+  "description": "",
+  "volta": {
+    "node": "24.4.1"
+  },
+  "dependencies": {
+    "@openai/agents": "^0.0.12",
+    "dotenv": "^17.2.0",
+    "openai": "^5.10.1",
+    "zod": "<=3.25.67"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
