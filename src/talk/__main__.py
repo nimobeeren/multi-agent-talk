@@ -9,6 +9,7 @@ from agents import (
     set_trace_processors,
 )
 from dotenv import load_dotenv
+from exa_py import Exa
 from openai import AsyncAzureOpenAI
 
 from .tracing import instrument_openai_agents
@@ -26,24 +27,30 @@ set_trace_processors([])
 # Use OpenTelemetry for tracing
 instrument_openai_agents()
 
+exa = Exa(api_key=os.getenv("EXA_API_KEY"))
+
 
 @function_tool
-def add_numbers(a: int, b: int) -> int:
-    return a + b
+def web_search(query: str) -> str:
+    return exa.search_and_contents(query=query, num_results=3, context=True)  # type: ignore
 
 
 async def main():
     agent = Agent(
         name="Single Agent",
-        instructions="You are a helpful assistant",
-        tools=[add_numbers],
-        model="gpt-4.1-mini",
+        instructions="You are a thorough research assistant. Generate a one-page report based on the user's query.",
+        tools=[web_search],
+        model="gpt-5-mini",
     )
 
-    result = await Runner.run(agent, "What is 2+2?")
+    result = await Runner.run(agent, "What are the differences between GPT-5 models available in ChatGPT and the API?")
 
     print(result.final_output)
 
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+# NEXT UP
+# create some "agents" which can answer questions using data from a CRM/PIM
+# then try to answer questions which need at least 2 of these data sources

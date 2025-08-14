@@ -255,6 +255,22 @@ wheels = [
 ]
 
 [[package]]
+name = "exa-py"
+version = "1.14.20"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "httpx" },
+    { name = "openai" },
+    { name = "pydantic" },
+    { name = "requests" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/bd/00/b7efa5458c92ac415a334c9b27b0cfd6f0327ee545bd7f4c8639129a0ee0/exa_py-1.14.20.tar.gz", hash = "sha256:423789a0635b7a4ecd5f56d6b4a0dfb01126fa45ce1e04106c0bb96b7d551ebf", size = 35483, upload-time = "2025-07-30T18:52:53.35Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/29/36/d574fd02741fa7706def78fd81f5fe405a84dca3d3cb94f80f27469d7d38/exa_py-1.14.20-py3-none-any.whl", hash = "sha256:e0ed9d99c3c494a0e6903e11a0f6fb773b3b23d0cd802380cf58efc97d9d332d", size = 45156, upload-time = "2025-07-30T18:52:52.01Z" },
+]
+
+[[package]]
 name = "executing"
 version = "2.2.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1369,6 +1385,7 @@ name = "talk"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "exa-py" },
     { name = "openai" },
     { name = "openai-agents" },
     { name = "pydantic-ai", extra = ["logfire"] },
@@ -1377,6 +1394,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "exa-py", specifier = ">=1.14.20" },
     { name = "openai", specifier = ">=1.97.1" },
     { name = "openai-agents", specifier = ">=0.2.3" },
     { name = "pydantic-ai", extras = ["logfire"], specifier = ">=0.4.5" },
