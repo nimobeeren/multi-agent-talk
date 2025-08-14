@@ -14,6 +14,7 @@ from exa_py import Exa
 from openai import AsyncAzureOpenAI
 
 from .crm_agent import crm_agent
+from .pim_agent import pim_agent
 from .tracing import instrument_openai_agents
 
 load_dotenv()
@@ -43,15 +44,19 @@ def web_search(query: str) -> str:
 
 async def main():
     agent = Agent(
-        name="Single Agent",
-        instructions="You are a thorough research assistant. Briefly answer the query.",
-        tools=[web_search, crm_agent.as_tool(tool_name=None, tool_description=None)],
+        name="Customer Service Agent",
+        instructions="You are a helpful and kind customer service agent. Briefly answer the query using the tools provided.",
+        tools=[
+            web_search,
+            crm_agent.as_tool(tool_name=None, tool_description=None),
+            pim_agent.as_tool(tool_name=None, tool_description=None),
+        ],
         model="gpt-5-mini",
     )
 
     result = await Runner.run(
         agent,
-        "What are the orders for the customer 'Skyline Builders'?",
+        "What types of cement do you have in stock?",
     )
 
     print(result.final_output)

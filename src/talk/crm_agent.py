@@ -11,7 +11,7 @@ def query_crm(query: str) -> str:
 
 crm_agent = Agent(
     name="CRM Agent",
-    instructions="You retrieve information from the CRM system.",
+    instructions="You retrieve information from the Customer Relationship Management system.",
     tools=[query_crm],
     model="gpt-5-mini",
 )
