@@ -1,10 +1,12 @@
 import asyncio
 import os
+import sys
 
 from agents import (
     Agent,
     Runner,
     function_tool,
+    run_demo_loop,
     set_default_openai_api,
     set_default_openai_client,
     set_trace_processors,
@@ -42,24 +44,24 @@ def web_search(query: str) -> str:
     return results.context  # type: ignore
 
 
+agent = Agent(
+    name="Customer Service Agent",
+    instructions="You are a helpful and kind customer service agent. Briefly answer the query using the tools provided. Do not rely on your own knowledge, only use information from your instructions and tools.",
+    tools=[
+        web_search,
+        crm_agent.as_tool(tool_name=None, tool_description=None),
+        pim_agent.as_tool(tool_name=None, tool_description=None),
+    ],
+    model="gpt-5-mini",
+)
+
+
 async def main():
-    agent = Agent(
-        name="Customer Service Agent",
-        instructions="You are a helpful and kind customer service agent. Briefly answer the query using the tools provided.",
-        tools=[
-            web_search,
-            crm_agent.as_tool(tool_name=None, tool_description=None),
-            pim_agent.as_tool(tool_name=None, tool_description=None),
-        ],
-        model="gpt-5-mini",
-    )
-
-    result = await Runner.run(
-        agent,
-        "What types of cement do you have in stock?",
-    )
-
-    print(result.final_output)
+    if len(sys.argv) > 1:
+        result = await Runner.run(agent, sys.argv[1])
+        print(result.final_output)
+    else:
+        await run_demo_loop(agent, stream=False)
 
 
 if __name__ == "__main__":
