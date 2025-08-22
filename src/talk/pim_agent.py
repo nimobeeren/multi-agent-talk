@@ -1,4 +1,5 @@
-from agents import Agent, function_tool
+from agents import Agent, ModelSettings, function_tool
+from openai.types import Reasoning
 
 from .pim import db
 
@@ -18,11 +19,12 @@ def list_products(
 pim_agent = Agent(
     name="PIM Agent",
     instructions="""
-    You retrieve information from the Product Information Management system.
-    Briefly answer the query using the tools provided.
-    Do not rely on your own knowledge.
-    If you are asked to do something you can't do with your tools, explain why.
+    Get information from the Product Information Management system.
+    Do not rely on your own knowledge, instead you may use tools.
     """,
     tools=[list_products],
     model="gpt-5-mini",
+    model_settings=ModelSettings(
+        verbosity="low", reasoning=Reasoning(effort="minimal")
+    ),
 )

@@ -1,4 +1,5 @@
-from agents import Agent, function_tool
+from agents import Agent, ModelSettings, function_tool
+from openai.types import Reasoning
 
 from .crm import db
 
@@ -12,11 +13,12 @@ def list_orders(date: str | None, customer: str | None, product_sku: str | None)
 crm_agent = Agent(
     name="CRM Agent",
     instructions="""
-    You retrieve information from the Customer Relationship Management system.
-    Briefly answer the query using the tools provided.
-    Do not rely on your own knowledge.
-    If you are asked to do something you can't do with your tools, explain why.
+    Get information from the Customer Relationship Management system.
+    Do not rely on your own knowledge, instead you may use tools.
     """,
     tools=[list_orders],
     model="gpt-5-mini",
+    model_settings=ModelSettings(
+        verbosity="low", reasoning=Reasoning(effort="minimal")
+    ),
 )

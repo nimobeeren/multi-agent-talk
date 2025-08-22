@@ -5,5 +5,5 @@
 5. use an agent as a tool
 6. add a second agent, ask question that needs both agents (maybe MCP?)
 7. try handoffs instead of tools?
-8. tackle issue of offering to do things it can't (how?)
+8. tackle issue of offering to do things it can't do
 9. add guardrails

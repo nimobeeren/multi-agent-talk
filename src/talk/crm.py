@@ -36,7 +36,7 @@ db = """
 - Customer: Skyline Builders
 - Product: High-Strength Cement 25kg (SKU: HSC-2505)
 - Quantity: 100
-- Price: €1,100.00
+- Price: €550.00
 
 ### Order
 

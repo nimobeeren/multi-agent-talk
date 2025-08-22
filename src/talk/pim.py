@@ -53,7 +53,7 @@ db = """
 - Name: Insulated Roof Panel 1200x3000mm
 - Description: A panel for insulating roofs
 - Price: €40.00
-- Stock: 15
+- Stock: 75
 - Insulation Type: Polyurethane
 - Panel Thickness: 50mm
 
