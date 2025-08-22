@@ -4,50 +4,77 @@ db = """
 
 ### Product
 
-- ID: CMX-5012
+- Product ID: 1
+- SKU: CMX-5012
 - Name: Reinforced Concrete Mix 50kg
 - Description: A mix of cement, sand, and gravel for concrete construction
-- Price: 8.00
+- Price: €8.00
 - Stock: 80
 - Compressive Strength: 30 MPa
 - Aggregate Size: 20mm
 
 ### Product
 
-- ID: STB-200H
+- Product ID: 2
+- SKU: STB-200H
 - Name: Structural Steel Beam H200x200
 - Description: A steel beam for structural construction
-- Price: 150.00
+- Price: €150.00
 - Stock: 20
 - Steel Grade: S355
 - Length: 6m
 
 ### Product
 
-- ID: IRP-1230
+- Product ID: 3
+- SKU: STB-300I
+- Name: Structural Steel Beam I300x150
+- Description: An I-shaped steel beam for heavy load applications
+- Price: €210.00
+- Stock: 12
+- Steel Grade: S460
+- Length: 8m
+
+### Product
+
+- Product ID: 4
+- SKU: STB-150U
+- Name: Structural Steel Beam U150x75
+- Description: A U-shaped steel beam for light structural use
+- Price: €95.00
+- Stock: 30
+- Steel Grade: S235
+- Length: 6m
+
+### Product
+
+- Product ID: 5
+- SKU: IRP-1230
 - Name: Insulated Roof Panel 1200x3000mm
 - Description: A panel for insulating roofs
-- Price: 40.00
+- Price: €40.00
 - Stock: 15
 - Insulation Type: Polyurethane
 - Panel Thickness: 50mm
 
 ### Product
 
-- ID: HSC-2505
+- Product ID: 6
+- SKU: HSC-2505
 - Name: High-Strength Cement 25kg
 - Description: A high-strength cement for construction
-- Price: 5.50
+- Price: €5.50
 - Stock: 150
 - Strength Class: 52.5N
 - Setting Time: 2 hours
 
 ### Product
 
-- ID: DGW-1215
+- Product ID: 7
+- SKU: DGW-1215
 - Name: Double-Glazed Window 120x150cm
 - Description: A window with double glazing
-- Price: 225.00
+- Price: €225.00
 - Stock: 70
 - Glass Type: Low-E
 - Frame Material: Aluminum

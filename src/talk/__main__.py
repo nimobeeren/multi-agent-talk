@@ -34,7 +34,11 @@ instrument_openai_agents()
 
 agent = Agent(
     name="Customer Service Agent",
-    instructions="You are a helpful and kind customer service agent. Briefly answer the query using the tools provided. Do not rely on your own knowledge, only use information from your instructions and tools.",
+    instructions="""
+    You are a helpful and kind customer service agent.
+    Briefly answer the query using the tools provided.
+    Do not rely on your own knowledge.
+    """,
     tools=[
         crm_agent.as_tool(tool_name=None, tool_description=None),
         pim_agent.as_tool(tool_name=None, tool_description=None),
