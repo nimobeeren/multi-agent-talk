@@ -1,18 +1,15 @@
 import asyncio
-import os
 import sys
 
 from agents import (
     Agent,
     Runner,
-    function_tool,
     run_demo_loop,
     set_default_openai_api,
     set_default_openai_client,
     set_trace_processors,
 )
 from dotenv import load_dotenv
-from exa_py import Exa
 from openai import AsyncAzureOpenAI
 
 from .crm_agent import crm_agent
@@ -34,21 +31,11 @@ set_trace_processors([])
 # Use OpenTelemetry for tracing
 instrument_openai_agents()
 
-exa = Exa(api_key=os.getenv("EXA_API_KEY"))
-
-
-@function_tool
-def web_search(query: str) -> str:
-    results = exa.search_and_contents(query=query, num_results=3)
-    print("Sources:\n" + "\n".join([result.url for result in results.results]))
-    return results.context  # type: ignore
-
 
 agent = Agent(
     name="Customer Service Agent",
     instructions="You are a helpful and kind customer service agent. Briefly answer the query using the tools provided. Do not rely on your own knowledge, only use information from your instructions and tools.",
     tools=[
-        web_search,
         crm_agent.as_tool(tool_name=None, tool_description=None),
         pim_agent.as_tool(tool_name=None, tool_description=None),
     ],
