@@ -1,5 +1,5 @@
 ## Usage
 
 ```bash
-uv run -m talk
+uv run src/talk/main_05.py
 ```
