@@ -1,3 +1,5 @@
 .venv/
 .env
 __pycache__/
+# working file during talk
+main.py
