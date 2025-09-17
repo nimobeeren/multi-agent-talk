@@ -4,7 +4,6 @@ product_db = """
 
 ### Product
 
-- Product ID: 1
 - SKU: CMX-5012
 - Name: Reinforced Concrete Mix 50kg
 - Description: A mix of cement, sand, and gravel for concrete construction
@@ -15,7 +14,6 @@ product_db = """
 
 ### Product
 
-- Product ID: 2
 - SKU: STB-200H
 - Name: Structural Steel Beam H200x200
 - Description: A steel beam for structural construction
@@ -26,7 +24,6 @@ product_db = """
 
 ### Product
 
-- Product ID: 3
 - SKU: STB-300I
 - Name: Structural Steel Beam I300x150
 - Description: An I-shaped steel beam for heavy load applications
@@ -37,7 +34,6 @@ product_db = """
 
 ### Product
 
-- Product ID: 4
 - SKU: STB-150U
 - Name: Structural Steel Beam U150x75
 - Description: A U-shaped steel beam for light structural use
@@ -48,7 +44,6 @@ product_db = """
 
 ### Product
 
-- Product ID: 5
 - SKU: IRP-1230
 - Name: Insulated Roof Panel 1200x3000mm
 - Description: A panel for insulating roofs
@@ -59,7 +54,6 @@ product_db = """
 
 ### Product
 
-- Product ID: 6
 - SKU: HSC-2505
 - Name: High-Strength Cement 25kg
 - Description: A high-strength cement for construction
@@ -70,7 +64,6 @@ product_db = """
 
 ### Product
 
-- Product ID: 7
 - SKU: DGW-1215
 - Name: Double-Glazed Window 120x150cm
 - Description: A window with double glazing

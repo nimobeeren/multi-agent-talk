@@ -5,7 +5,6 @@ import asyncio
 from agents import (
     Agent,
     InputGuardrailTripwireTriggered,
-    ModelSettings,
     function_tool,
     run_demo_loop,
     input_guardrail,
@@ -16,7 +15,6 @@ from agents import (
 )
 from pydantic import BaseModel
 from dotenv import load_dotenv
-from openai.types import Reasoning
 
 from talk.crm import order_db
 from talk.pim import product_db
@@ -52,23 +50,20 @@ async def guardrail(
 
 @function_tool
 def list_products(
-    id: str | None,
     sku: str | None,
     name: str | None,
     price: float | None,
     stock: int | None,
 ) -> str:
-    """List products given a query."""
     return product_db
 
 
 @function_tool
 def list_orders(
     date: str | None,
-    customer: str | None,
     product_sku: str | None,
+    quantity: int | None,
 ) -> str:
-    """List orders given a query."""
     return order_db
 
 
@@ -80,10 +75,6 @@ pim_agent = Agent(
     Do not offer to do things you can't do with your tools.
     """,
     tools=[list_products],
-    model="gpt-5-nano",
-    model_settings=ModelSettings(
-        verbosity="low", reasoning=Reasoning(effort="minimal")
-    ),
 )
 
 crm_agent = Agent(
@@ -94,10 +85,6 @@ crm_agent = Agent(
     Do not offer to do things you can't do with your tools.
     """,
     tools=[list_orders],
-    model="gpt-5-nano",
-    model_settings=ModelSettings(
-        verbosity="low", reasoning=Reasoning(effort="minimal")
-    ),
 )
 
 agent = Agent(
@@ -109,17 +96,13 @@ agent = Agent(
     """,
     tools=[
         pim_agent.as_tool(
-            tool_name=None, tool_description="Can list orders and nothing else"
+            tool_name=None, tool_description="Can list products and nothing else"
         ),
         crm_agent.as_tool(
-            tool_name=None, tool_description="Can list products and nothing else"
+            tool_name=None, tool_description="Can list orders and nothing else"
         ),
     ],
     input_guardrails=[guardrail],
-    model="gpt-5-nano",
-    model_settings=ModelSettings(
-        verbosity="low", reasoning=Reasoning(effort="minimal")
-    ),
 )
 
 

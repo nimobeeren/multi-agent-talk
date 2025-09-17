@@ -2,8 +2,7 @@
 
 import asyncio
 
-from agents import Agent, Runner, ModelSettings
-from openai.types import Reasoning
+from agents import Agent, Runner
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -13,10 +12,6 @@ agent = Agent(
     instructions="""
     You are a helpful and kind customer service agent for a construction materials company.
     """,
-    model="gpt-5-nano",
-    model_settings=ModelSettings(
-        verbosity="low", reasoning=Reasoning(effort="minimal")
-    ),
 )
 
 

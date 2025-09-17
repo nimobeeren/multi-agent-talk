@@ -1,3 +1,3 @@
 CRM + PIM
-- How long are the steel beams ordered by greenfield this year?
-- Do we have enough stock to fulfill the urbanworks order?
+- How long are the steel beams we ordered in May?
+- Do you have enough stock to fulfill my last order?
