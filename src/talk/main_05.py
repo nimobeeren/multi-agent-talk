@@ -70,7 +70,7 @@ def list_orders(
 pim_agent = Agent(
     name="PIM Agent",
     instructions="""
-    You retrieve information from the Product Information Management system.
+    You retrieve product information from the Product Information Management system.
     Do not rely on your own knowledge, instead rely on your tools.
     Do not offer to do things you can't do with your tools.
     """,
@@ -80,7 +80,7 @@ pim_agent = Agent(
 crm_agent = Agent(
     name="CRM Agent",
     instructions="""
-    You retrieve information from the Customer Relationship Management system.
+    You retrieve order information from the Customer Relationship Management system.
     Do not rely on your own knowledge, instead rely on your tools.
     Do not offer to do things you can't do with your tools.
     """,
