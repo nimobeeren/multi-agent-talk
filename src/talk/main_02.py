@@ -1,4 +1,4 @@
-"""Use the demo loop, instrument the Agents SDK and add tools."""
+"""Use the demo loop, add tools and instrument the Agents SDK."""
 
 import asyncio
 
