@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 from talk.crm import order_db
 from talk.pim import product_db
-from talk.logging import setup_logging
+from talk.tracing import setup_logging
 
 load_dotenv()
 setup_logging()
