@@ -7,10 +7,10 @@ from dotenv import load_dotenv
 
 from talk.crm import order_db
 from talk.pim import product_db
-from talk.tracing import instrument_openai_agents
+from talk.logging import setup_logging
 
 load_dotenv()
-instrument_openai_agents()
+setup_logging()
 
 
 @function_tool
